@@ -1,2 +1,2 @@
 # JetpackDemoChatApplication
- A full fledged Chat application for Android, made using latest jetpack components and GoLang for backend.
+ This project uses the latest Android components like Composables, Dagger Hilt etc for creating a chat application. Golang is used for writing the backend for the app. Here we are exploring the best code practises for making an android application from the scratch and archetecting the same in the best possible manner. Feel free to fo through the code and let me know if the project can be improved further. 
