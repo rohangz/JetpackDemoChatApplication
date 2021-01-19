@@ -1,0 +1,83 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "org.jetbrains.kotlin.android"
+    id "kotlin-kapt"
+    id "dagger.hilt.android.plugin"
+
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.rinfinity.jetpackdemochat"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+    composeOptions {
+        kotlinCompilerVersion "1.4.21"
+        kotlinCompilerExtensionVersion "$jetpackComposeVersion"
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation "com.google.android.material:material:1.2.1"
+    testImplementation "junit:junit:4.+"
+    androidTestImplementation "androidx.test.ext:junit:1.1.2"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
+
+    //Jetpack Compose Dependency
+    implementation "androidx.compose.ui:ui:$jetpackComposeVersion"
+    // Tooling support (Previews, etc.)
+    implementation "androidx.compose.ui:ui-tooling:$jetpackComposeVersion"
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.foundation:foundation:$jetpackComposeVersion"
+    // Material Design
+    implementation "androidx.compose.material:material:$jetpackComposeVersion"
+    // Material design icons
+    implementation "androidx.compose.material:material-icons-core:$jetpackComposeVersion"
+    implementation "androidx.compose.material:material-icons-extended:$jetpackComposeVersion"
+    // Integration with observables
+    implementation "androidx.compose.runtime:runtime-livedata:$jetpackComposeVersion"
+    implementation "androidx.compose.runtime:runtime-rxjava2:$jetpackComposeVersion"
+
+
+    //Android Hilt Dep
+    implementation "com.google.dagger:hilt-android:$androidHiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$androidHiltVersion"
+
+    // UI Tests
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$jetpackComposeVersion"
+
+
+    implementation project(":common_module")
+    implementation project(":oauth")
+}

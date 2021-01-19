@@ -1,0 +1,5 @@
+rootProject.name = "JetpackDemoChat"
+include ':app'
+include ':common_module'
+include ':authentication'
+include ':oauth'
